@@ -1,0 +1,16 @@
+services:
+    backend:
+        image: todo-backend
+        build:
+            context: todo-backend
+        ports:
+            - 3000:3000
+    mongo:
+        image: mongo-bongo
+        build:
+            context: .
+            dockerfile: Dockerfile.mongo
+        environment:
+            MONGO_INITDB_ROOT_USERNAME: root
+            MONGO_INITDB_ROOT_PASSWORD: example
+            MONGO_INITDB_DATABASE: the_database
