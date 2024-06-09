@@ -1,0 +1,2 @@
+fullstack@fullstack:~/exercises$ docker container run --rm ubuntu sh -c 'mkdir -p /usr/src/app; touch /usr/src/app/index.js; ls -l /usr/src/app/index.js'
+-rw-r--r-- 1 root root 0 Jun  9 07:16 /usr/src/app/index.js
