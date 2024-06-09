@@ -1,0 +1,53 @@
+fullstack@fullstack:~/exercises/todo-app$ docker-compose up -d
+Creating network "todo-app_default" with the default driver
+Creating todo-app_mongo_1   ... done
+Creating todo-app_backend_1 ... done
+fullstack@fullstack:~/exercises/todo-app$ docker exec -it  todo-app_mongo_1 mongosh -u root -p example
+Current Mongosh Log ID:	666589913626477e6fa26a12
+Connecting to:		mongodb://<credentials>@127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.2.6
+Using MongoDB:		7.0.11
+Using Mongosh:		2.2.6
+
+For mongosh info see: https://docs.mongodb.com/mongodb-shell/
+
+
+To help improve our products, anonymous usage data is collected and sent to MongoDB periodically (https://www.mongodb.com/legal/privacy-policy).
+You can opt-out by running the disableTelemetry() command.
+
+------
+   The server generated these startup warnings when booting
+   2024-06-09T10:53:00.274+00:00: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine. See http://dochub.mongodb.org/core/prodnotes-filesystem
+   2024-06-09T10:53:00.481+00:00: /sys/kernel/mm/transparent_hugepage/enabled is 'always'. We suggest setting it to 'never' in this binary version
+   2024-06-09T10:53:00.481+00:00: vm.max_map_count is too low
+------
+
+test> show dbs
+admin         100.00 KiB
+config         12.00 KiB
+local          40.00 KiB
+the_database   40.00 KiB
+test> use the_database
+switched to db the_database
+the_database> show collections
+todos
+the_database> db.todos.find({})
+[
+  {
+    _id: ObjectId('6665898b6cda6b77cca26a13'),
+    text: 'Write code',
+    done: true
+  },
+  {
+    _id: ObjectId('6665898b6cda6b77cca26a14'),
+    text: 'Learn about containers',
+    done: false
+  }
+]
+the_database> db.todos.insert({ text: 'Increase the number of tools in my tool belt', done: false });
+DeprecationWarning: Collection.insert() is deprecated. Use insertOne, insertMany, or bulkWrite.
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId('66658a0c3626477e6fa26a13') }
+}
+the_database> 
+fullstack@fullstack:~/exercises/todo-app$ 
