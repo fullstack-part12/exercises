@@ -1,0 +1,22 @@
+fullstack@fullstack:~/exercises$ docker run -it --name hello ubuntu
+root@409b37081ebd:/# mkdir -p /usr/src/app         
+root@409b37081ebd:/# cat > /usr/src/app/index.js
+console.log('Hello World')
+^C
+root@409b37081ebd:/# which nano
+root@409b37081ebd:/# apt-get -q -q update
+root@409b37081ebd:/# apt-get -q -q install nano
+debconf: delaying package configuration, since apt-utils is not installed
+Selecting previously unselected package nano.
+(Reading database ... 4368 files and directories currently installed.)
+Preparing to unpack .../nano_7.2-2build1_amd64.deb ...
+Unpacking nano (7.2-2build1) ...
+Setting up nano (7.2-2build1) ...
+update-alternatives: using /bin/nano to provide /usr/bin/editor (editor) in auto mode
+update-alternatives: warning: skip creation of /usr/share/man/man1/editor.1.gz because associated file /usr/share/man/man1/nano.1.gz (of link group editor) doesn't exist
+update-alternatives: using /bin/nano to provide /usr/bin/pico (pico) in auto mode
+update-alternatives: warning: skip creation of /usr/share/man/man1/pico.1.gz because associated file /usr/share/man/man1/nano.1.gz (of link group pico) doesn't exist
+root@409b37081ebd:/# which nano
+/usr/bin/nano
+root@409b37081ebd:/# 
+exit
