@@ -3,8 +3,11 @@ services:
         image: todo-backend
         build:
             context: todo-backend
+            dockerfile: dev.Dockerfile
         ports:
             - 3000:3000
+        volumes:
+            - ./todo-backend:/usr/src/app
     mongo:
         image: mongo-bongo
         build:
