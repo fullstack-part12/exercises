@@ -8,11 +8,13 @@ services:
     mongo:
         image: mongo-bongo
         build:
-            context: .
-            dockerfile: Dockerfile.mongo
+            context: mongo-dev
         environment:
             MONGO_INITDB_ROOT_USERNAME: root
             MONGO_INITDB_ROOT_PASSWORD: example
             MONGO_INITDB_DATABASE: the_database
     redis:
         image: redis
+        volumes:
+            - ./redis_data_dev:/data
+        command: ['redis-server', '--appendonly', 'yes']
