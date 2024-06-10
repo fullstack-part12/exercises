@@ -7,7 +7,7 @@ RUN npm ci
 
 RUN npx vitest run
 
-RUN VITE_BACKEND_URL=http://127.0.0.1:3000/ npm run build
+RUN VITE_BACKEND_URL=http://127.0.0.1:8080/api/ npm run build
 
 RUN npm install -g serve
 

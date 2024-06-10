@@ -4,6 +4,7 @@ services:
         container_name: todo-front-dev
         build:
             context: todo-frontend
+            dockerfile: dev.Dockerfile
         ports:
             - 5001:3000
         volumes:
