@@ -1,0 +1,8 @@
+I have not make any fullstack apps yet. One Flask app made in tsoha course
+have separate db. So I made separate containers for postgres and the flask
+app. There is dockerfile and docker-compose.yml's, but nginx was bit
+unnecessary as flask only connects database inside docker network. Anyway
+hope this is OK for submissions e21 and e22.
+
+starting point: https://git.hix.fi/kyselma.git/
+dockerized version: kyselma/

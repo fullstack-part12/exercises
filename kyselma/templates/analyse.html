@@ -1,0 +1,112 @@
+{% include 'base.html' %}
+{% if nick %}
+
+{% if users %}
+
+Tutkit kyselmää: {{ code }}
+
+
+<div class="kysQuestion"><div class="kysScale">
+<form action="/set/compare" method="POST">
+<select class="kysSelectU1 kysSelect" name="user1">
+{% for user in users %}
+ {% if user1==user.id %}
+  <option value="{{ user.id }}" selected>{{ user.nick }}</option>
+ {% else %}
+  <option value="{{ user.id }}">{{ user.nick }}</option>
+ {% endif %}
+{% endfor %}
+</select>
+<select class="kysSelectU2 kysSelect" name="user2">
+{% for user in users %}
+ {% if user2==user.id %}
+  <option value="{{ user.id }}" selected>{{ user.nick }}</option>
+ {% else %}
+  <option value="{{ user.id }}">{{ user.nick }}</option>
+ {% endif %}
+{% endfor %}
+</select>
+<input type="text" name="csrf" value="{{ session.csrf }}" hidden="true">
+<input type="submit" value="Vertaa" class="kysButton">
+</form>
+</div></div>
+
+{% endif %}
+
+{% if code %}
+
+<div id="questions" class="kysQuestions">
+
+ <div class="kysTotal">
+  <div class="kysTotalBackground">
+   <div class="kysTotalText">{{ avg }}%</div>
+  </div>
+ </div>
+
+{% for q in questions %}
+<div class="kysQuestion">
+ <div class="kysText">{{ q.q }} ({{ q.c }}%)</div>
+ <input class="kysAnswer kysUser1" type="range" min="0" max="999"
+        value="{{ q.a1 }}" disabled="">
+ <input class="kysAnswer kysUser2" type="range" min="0" max="999"
+        value="{{ q.a2 }}" disabled="">
+ <div class="kysScale">
+  <div class="kysNegative">{{ q.n }}</div>
+  <div class="kysScaleSpacer"></div>
+  <div class="kysPositive">{{ q.p }}</div>
+ </div>
+</div>
+{% endfor %}
+
+<form action="/set/compare" method="POST">
+<input type="text" name="user1" hidden="true" value={{ best.max_u1 }}>
+<input type="text" name="user2" hidden="true" value={{ best.max_u2 }}>
+<input type="text" name="csrf" value="{{ session.csrf }}" hidden="true">
+<input type="submit" value="Kaikista paras yhtäläisyys ({{ best.max }}%)" 
+  class="kysButton">
+</form>
+
+<form action="/set/compare" method="POST">
+<input type="text" name="user1" hidden="true" value={{ best.maxme_u1 }}>
+<input type="text" name="user2" hidden="true" value={{ best.maxme_u2 }}>
+<input type="text" name="csrf" value="{{ session.csrf }}" hidden="true">
+<input type="submit" value="Paras yhtäläisyys kanssani ({{ best.maxme }}%)" 
+  class="kysButton">
+</form>
+
+<form action="/set/compare" method="POST">
+<input type="text" name="user1" hidden="true" value={{ best.minme_u1 }}>
+<input type="text" name="user2" hidden="true" value={{ best.minme_u2 }}>
+<input type="text" name="csrf" value="{{ session.csrf }}" hidden="true">
+<input type="submit" value="Huonoin yhtäläisyys kanssani ({{ best.minme }}%)"
+  class="kysButton">
+</form>
+
+<form action="/set/compare" method="POST">
+<input type="text" name="user1" hidden="true" value={{ best.min_u1 }}>
+<input type="text" name="user2" hidden="true" value={{ best.min_u2 }}>
+<input type="text" name="csrf" value="{{ session.csrf }}" hidden="true">
+<input type="submit" value="Kaikista huonoin yhtäläisyys ({{ best.min }}%)"
+  class="kysButton">
+</form>
+
+</div>
+
+{% endif %}
+
+<form action="/set/answer_id" method="POST">
+Vaihda kyselyn koodia:
+<input type="text" name="link">
+<input type="text" name="caller" value="analyse" hidden="true">
+<input type="text" name="csrf" value="{{ session.csrf }}" hidden="true">
+<input type="submit" value="Vaihda">
+</form>
+
+{% if code %}
+Kopioi linkki tähän kyselyyn:
+<button id="kysLink">http://127.0.0.1:5000/kys/{{ code }}</button>
+<script src="kys-link-info.js"></script>
+
+{% endif %}
+
+{% endif %}

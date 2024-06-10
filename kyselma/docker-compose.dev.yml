@@ -1,0 +1,18 @@
+services:
+    pg-dev:
+        image: postgres:16
+        restart: always
+        environment:
+            POSTGRES_PASSWORD: passpass
+            POSTGRES_USER: useruser
+        volumes:
+            - ./SCHEMA.sql:/docker-entrypoint-initdb.d/SCHEMA.sql
+        
+    kyselma:
+        image: kyselma
+        build:
+            context: .
+        environment:
+            SQLALCHEMY_DATABASE_URI: postgresql://useruser:passpass@pg-dev/
+        ports:
+            - 8080:80

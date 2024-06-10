@@ -1,0 +1,126 @@
+
+.kysQuestion {
+    display: flex;
+    flex-direction: column;
+    max-width: 25rem;
+    padding: 0.5rem;
+    border: 0.15rem #fed solid;
+}
+.kysText { 
+    align-self: center;
+}
+.kysScale {
+    display: flex;
+    width: 100%;
+    resize: horizontal;
+}
+.kysScaleSpacer {
+    flex-grow: 1;    
+}
+.kysNegative input {
+    width: 100%;
+}
+.kysPositive input {
+    width: 100%;
+}
+.kysCreateText input {
+    width: 100%;
+    resize: horizontal;
+}
+.kysCreateText { 
+    width: 100%;
+}
+
+.kysNick::before {
+  content: "Olet:";
+  padding-right: 0.4rem;
+}
+
+.kysNick {
+    border: 0.1rem solid;
+    padding: 0.4rem;
+    position: fixed;
+    top: 100vh;
+    left: 100vw;
+    transform: translate(-100%, -100%);
+    display: block;
+    background-color: #DAF;
+}
+
+.kysAlert {
+    border: 0.4rem solid;
+    padding: 0.8rem;
+    display: block;
+    background-color: #F55;
+    border-top-color: #F97;
+    border-left-color: #F96;
+    border-right-color: #F13;
+    border-bottom-color: #F14;
+    position: fixed;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+}
+
+.kysInfo {
+    border: 0.4rem solid;
+    padding: 0.8rem;
+    display: block;
+    background-color: #55F;
+    border-top-color: #79F;
+    border-left-color: #69F;
+    border-right-color: #31F;
+    border-bottom-color: #41F;
+    position: fixed;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+}
+
+.kysTotal {
+  max-width: 25rem;
+  min-width: max-content;
+  display: flex;
+  justify-content: center;
+}
+.kysTotalText {
+    position: absolute;
+    font-size: xxx-large;
+    height: 8rem;
+    aspect-ratio: 1;
+    text-align: center;
+    padding-top: 0.5rem;
+}
+.kysTotalBackground {
+  position: relative;
+  height: 8rem;
+  aspect-ratio: 1;
+  border-image: radial-gradient(#F00 69.6%,#0000 70.4%) 85%/50%;
+  clip-path: polygon(-42% 0,50% 91%, 142% 0);
+  z-index: -1;
+}
+
+.kysSelectU1 {
+  background: #faa;
+}
+
+.kysSelectU2 {
+  background: #aaf;
+}
+
+.kysUser1::-webkit-slider-runnable-track, .kysUser1::-moz-range-track {
+  background: #faa;
+}
+
+.kysUser2::-webkit-slider-runnable-track, .kysUser2::-moz-range-track {
+  background: #aaf;
+}
+
+.kysUser1::-webkit-slider-thumb, .kysUser1::-moz-range-thumb {
+  background: #c00;
+}
+
+.kysUser2::-webkit-slider-thumb, .kysUser2::-moz-range-thumb {
+  background: #00c;
+}
+

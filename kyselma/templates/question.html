@@ -1,0 +1,23 @@
+{% include 'base.html' %}
+
+{% if nick %}
+
+<form action="/set/question" method="POST">
+<div class="kysQuestion">
+<div class="kysCreateText">Kysymys:</div>
+<div class="kysCreateText"><input type="text" name="question"></div>
+<div class="kysCreateText">Valinnat:</div>
+<div class="kysScale">
+        <div class="kysNegative"><input type="text" name="neg_ans"></div>
+        <div class="kysScaleSpacer"></div>
+        <div class="kysPositive"><input type="text" name="pos_ans"></div>
+</div>
+
+<input type="range" min="0" max="999" value="500" 
+                class="kysAnswer" name="answer" >
+<input type="text" name="csrf" value="{{ session.csrf }}" hidden="true">
+<input type="submit" value="Lisää kysymys">
+</div>
+</form>
+
+{% endif %}

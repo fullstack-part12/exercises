@@ -1,0 +1,55 @@
+{
+    "title": "Kyselmä",
+    "pages": { 
+        "info": {
+            "URL": "pages/info.html",
+            "menuIcon": "icons/gen-heart-rate-svgrepo-com.svg",
+            "menuName": "Kyselmä"
+        },
+        "spacer-1": {
+        },
+        "create": {
+            "pageTitle": "Luo kysely",
+            "URL": "pages/create.html",
+            "menuIcon": "icons/con-ruler-pencil-svgrepo-com.svg",
+            "menuName": "Luo",
+            "dynamic": "yes"
+        },
+        "answer": {
+            "pageTitle": "Vastaa kyselyyn",
+            "URL": "pages/answer.html",
+            "menuIcon": "icons/cld-server-svgrepo-com.svg",
+            "menuName": "Vastaa",
+            "dynamic": "yes"
+        },
+        "analyse": {
+            "pageTitle": "Tutki vastauksia",
+            "URL": "pages/analyse.html",
+            "menuIcon": "icons/cel-rings-love-svgrepo-com.svg",
+            "menuName": "Tutki",
+            "dynamic": "yes"
+        },
+        "moderate": {
+            "pageTitle": "Moderoi sivustoa",
+            "URL": "pages/moderate.html",
+            "menuIcon": "icons/cle-spraycan-svgrepo-com.svg",
+            "hidden": "yes",
+            "menuName": "Moderoi"
+        },
+        "question": {
+            "pageTitle": "Lisää kysymys",
+            "URL": "pages/question.html",
+            "hidden": "yes"
+        },
+        "quiz": {
+            "pageTitle": "Luodaanko uusi kyselmä?",
+            "URL": "pages/quiz.html",
+            "hidden": "yes"
+        },
+        "nick_reset": {
+            "pageTitle": "Resetoidaanko nimimerkki?",
+            "URL": "pages/nick_reset.html",
+            "hidden": "yes"
+        }
+    }
+}

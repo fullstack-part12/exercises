@@ -1,0 +1,39 @@
+{% include 'base.html' %}
+{% if nick %}
+
+{% if link %}
+
+Vastaa kyselmään "{{ link }}":
+
+<form class="kysQuestionaire" action="/set/answers" method="POST">
+<div id="questions" class="kysQuestions">
+{% for q in questions %}
+<div class="kysQuestion">
+<div class="kysText">{{ q.q }}</div>
+<div class="kysScale">
+ <div class="kysNegative">{{ q.n }}</div>
+ <div class="kysScaleSpacer"></div>
+ <div class="kysPositive">{{ q.p }}</div>
+</div>
+<input class="kysAnswer" type="range" min="0" max="999" name="{{ q.i }}">
+</div>
+{% endfor %}
+<input type="text" name="csrf" value="{{ session.csrf }}" hidden="true">
+<input class="kysSubmitAnswers" type="submit" value="Vastaa kyselyyn">
+</div>
+</form>
+
+{% else %}
+
+<form action="/set/answer_id" method="POST">
+Vastaa kyselyyn koodilla:
+<input type="text" name="link">
+<input type="text" name="caller" value="answer" hidden="true">
+<input type="text" name="csrf" value="{{ session.csrf }}" hidden="true">
+<input type="submit" value="Kyselmään">
+</form>
+
+{% endif %}
+
+
+{% endif %}
