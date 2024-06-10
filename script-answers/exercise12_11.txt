@@ -1,0 +1,22 @@
+fullstack@fullstack:~$ docker ps
+CONTAINER ID   IMAGE          COMMAND                  CREATED          STATUS         PORTS                                       NAMES
+ff264cd56c0e   todo-backend   "docker-entrypoint.s…"   11 minutes ago   Up 9 minutes   0.0.0.0:3000->3000/tcp, :::3000->3000/tcp   todo-app_backend_1
+f73c9965a300   redis          "docker-entrypoint.s…"   16 hours ago     Up 9 minutes   6379/tcp                                    todo-app_redis_1
+6ecd0cf85cd8   mongo-bongo    "docker-entrypoint.s…"   16 hours ago     Up 9 minutes   27017/tcp                                   todo-app_mongo_1
+fullstack@fullstack:~$ docker exec -it todo-app_redis_1 redis-cli
+127.0.0.1:6379> KEYS *
+1) "added_todos"
+127.0.0.1:6379> GET "added_todos"
+"112"
+127.0.0.1:6379> SET "added_todos" "9001"
+OK
+127.0.0.1:6379> GET "added_todos"
+"9002"
+127.0.0.1:6379> DEL "added_todos"
+(integer) 1
+127.0.0.1:6379> GET "added_todos"
+(nil)
+127.0.0.1:6379> GET "added_todos"
+"1"
+127.0.0.1:6379> 
+fullstack@fullstack:~$ 
