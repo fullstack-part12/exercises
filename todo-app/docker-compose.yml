@@ -3,9 +3,6 @@ services:
         image: todo-backend
         build:
             context: todo-backend
-            dockerfile: dev.Dockerfile
-        volumes:
-            - ./todo-backend:/usr/src/app
 
     mongo:
         image: mongo-bongo
@@ -19,23 +16,22 @@ services:
     redis:
         image: redis
         volumes:
-            - ./redis_data_dev:/data
+            - redis:/data
         command: ['redis-server', '--appendonly', 'yes']
 
     front:
-        image: todo-front-dev
-        container_name: todo-front-dev
+        image: todo-front
+        container_name: todo-front
         build:
             context: todo-frontend
-            dockerfile: dev.Dockerfile
-        volumes:
-            - ./todo-frontend:/usr/src/app
 
     proxy:
         image: todo-proxy
         build:
             context: nginx
-            dockerfile: dev.Dockerfile
         restart: unless-stopped
         ports:
-            - 8080:80
+            - 80:80
+
+volumes:
+    redis:
